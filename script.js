@@ -1,6 +1,6 @@
 //GAME OF WAR
-
-const cardFace = ["2 of ","3 of ","4 of ","5 of ","6 of ","7 of ","8 of ","9 of ","10 of ","jack of ","queen of ","king of ", "ace of "];
+//code for creating deck
+const cardFace = ["2","3","4","5","6","7","8","9","10","jack","queen","king","ace"];
 const cardSuits = ["spades", "clubs", "diamonds", "hearts"];
 const cardValue = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
@@ -17,4 +17,14 @@ for (let i=0; i<cardFace.length; i++){
         deck.push(card)
     }
   }
+//console.log(deck)
+
+//code for shuffling deck
+for (let i=0; i<deck.length; i++){
+  let randomIndex = Math.floor(Math.random()*52)
+  let x = deck[i];
+  deck[i] = deck[randomIndex];
+  deck[randomIndex] = x;
+}
+
 console.log(deck)
