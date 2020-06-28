@@ -43,9 +43,7 @@ for (i=0; i<deck.length; i++){
 
 //CODE for the battlefield...function called play()
 
-//round1
-
-
+//start playing rounds
 function play(){
   let card1 = player1.shift();
   let card2 = player2.shift();
@@ -53,15 +51,41 @@ function play(){
   console.log(card1);
   console.log(card2);
   
-if (card1.value === card2.value){
-  console.log("we have a war")
-}else if (card1.value > card2.value){
-  console.log("player 1 wins round");
-  player1 = player1.concat(pot);
-}else if(card1.value < card2.value){
-  console.log("player 2 wins round");
-  player2 = player2.concat(pot);
-  }
+if (card1.value > card2.value){
+   console.log("player 1 wins!");
+   player1 = player1.concat(pot);
+}else if (card1.value < card2.value){
+   console.log("player 2 wins!");
+   player2 = player2.concat(pot);
+}else if (card1.value === card2.value){
+  console.log("we have a war!")
+}
 console.log(player1);
 console.log(player2);
 }
+//EVERYTHING UP TO HERE IS GOOD!!!
+//RESEARCH BATTLE MODE AND TEST IT INDEPENDENTLY FIRST; TEST
+//IT AT THE BEGINNING WITH EACH PLAYER HAVING 26 CARDS AND RUN IT
+//UNTIL IT WORKS PROPERLY; THEN
+
+
+
+
+//fight mode, if players draw 2 cards equal in value
+/*function fight(){
+  let card1 = player1.shift();
+  let card2 = player2.shift();
+  let pot = [card1, card2];
+  
+  for (let i=0; i<4; i++){
+    card1 = player1.shift();
+    console.log(card1);
+  
+  };
+  for (let i=0; i<4; i++){
+    card2 = player2.shift();
+  console.log(card2)
+    
+  }
+}
+*/
