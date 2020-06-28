@@ -1,91 +1,95 @@
 //GAME OF WAR
-//code for creating deck
-const cardFace = ["2","3","4","5","6","7","8","9","10","jack","queen","king","ace"];
+//1. define game variables
+const cardFace = [
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "jack",
+  "queen",
+  "king",
+  "ace",
+];
 const cardSuits = ["spades", "clubs", "diamonds", "hearts"];
 const cardValue = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-
 let deck = [];
-let player1 = [];
-let player2 = [];
-
-for (let i=0; i<cardFace.length; i++){
-    for (let j=0; j<cardSuits.length; j++){
-        let card = {
-          face: cardFace[i],
-          suit: cardSuits[j],
-          value: cardValue[i]
-        }
-        deck.push(card)
-    }
+let deck1 = [];
+let player1deck = [];
+let player2deck = [];
+//2. Run function createDeck() to create deck
+function createDeck(){
+for (let i = 0; i < cardFace.length; i++) {
+  for (let j = 0; j < cardSuits.length; j++) {
+    let card = {
+      face: cardFace[i],
+      suit: cardSuits[j],
+      value: cardValue[i],
+    };
+    deck.push(card);
   }
-//console.log(deck)
-
-//code for shuffling deck
-for (let i=0; i<deck.length; i++){
-  let randomIndex = Math.floor(Math.random()*52)
+}
+console.log(deck.length+" cards ready");
+}
+//3. Run function shuffleDeck() to shuffle deck
+function shuffleDeck(){
+for (let i = 0; i < deck.length; i++) {
+  let randomIndex = Math.floor(Math.random() * 52);
   let x = deck[i];
   deck[i] = deck[randomIndex];
   deck[randomIndex] = x;
 }
-
-//console.log(deck)
-
-//code for dealing the deck to 2 players
-for (i=0; i<deck.length; i++){
-  if (i%2 !== 0){
-    player1.push(deck[i])
-  }else{
-    player2.push(deck[i])
+console.log(deck.length+" cards shuffled and ready to deal")
+}
+//4. Run function dealDeck() to deal deck to players
+function dealDeck(){
+for (i = 0; i < deck.length; i++) {
+  if (i % 2 !== 0) {
+    player1deck.push(deck[i]);
+  } else {
+    player2deck.push(deck[i]);
   }
 }
-//console.log(player1)
-//console.log(player2)
+console.log(player1deck.length+" cards for player 1");
+console.log(player2deck.length+" cards for player 2");
+}
 
-//CODE for the battlefield...function called play()
-
-//start playing rounds
-function play(){
-  let card1 = player1.shift();
-  let card2 = player2.shift();
+//5. Run function playRound() each time you want to play a round
+function playRound(){
+  let card1 = player1deck.shift();
+  let card2 = player2deck.shift();
   let pot = [card1, card2];
   console.log(card1);
   console.log(card2);
   
 if (card1.value > card2.value){
    console.log("player 1 wins!");
-   player1 = player1.concat(pot);
+   player1deck = player1deck.concat(pot);
 }else if (card1.value < card2.value){
    console.log("player 2 wins!");
-   player2 = player2.concat(pot);
+   player2deck = player2deck.concat(pot);
 }else if (card1.value === card2.value){
   console.log("we have a war!")
 }
-console.log(player1);
-console.log(player2);
+console.log("player 1 now has "+player1deck.length+" cards");
+console.log("player 2 now has "+player2deck.length+" cards");
 }
+
 //EVERYTHING UP TO HERE IS GOOD!!!
-//RESEARCH BATTLE MODE AND TEST IT INDEPENDENTLY FIRST; TEST
-//IT AT THE BEGINNING WITH EACH PLAYER HAVING 26 CARDS AND RUN IT
-//UNTIL IT WORKS PROPERLY; THEN
+//NOW WORK ON BATTLE MODE!!!
 
-
-
-
-//fight mode, if players draw 2 cards equal in value
-/*function fight(){
-  let card1 = player1.shift();
-  let card2 = player2.shift();
-  let pot = [card1, card2];
-  
-  for (let i=0; i<4; i++){
+//6. Run function fight() when the playRound() function is a tie
+function fight() {
+  for (let i = 0; i < 4; i++) {
     card1 = player1.shift();
     console.log(card1);
-  
-  };
-  for (let i=0; i<4; i++){
+  }
+  for (let j = 0; j < 4; j++) {
     card2 = player2.shift();
-  console.log(card2)
-    
+    console.log(card2);
   }
 }
-*/
