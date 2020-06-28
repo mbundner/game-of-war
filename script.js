@@ -83,13 +83,26 @@ console.log("player 2 now has "+player2deck.length+" cards");
 //NOW WORK ON BATTLE MODE!!!
 
 //6. Run function fight() when the playRound() function is a tie
-function fight() {
+/*function fight() {
+  card4 = player1deck.shift();
+  card8 = player2deck.shift();
+  let potfight = [card4, card8]
+  
   for (let i = 0; i < 4; i++) {
-    card1 = player1.shift();
-    console.log(card1);
-  }
+    console.log(card4);
+  };
   for (let j = 0; j < 4; j++) {
-    card2 = player2.shift();
-    console.log(card2);
+    console.log(card8);
+  };
+  
+  
+  
+  if (card4.value>card8.value){
+    console.log("player 1 wins fight");
+    player1deck = player1deck.concat(potfight);
+  }else if(card4.value<card8.value){
+    console.log("player 2 wins fight");
+    player2deck = player2deck.concat(potfight)
   }
 }
+*/
