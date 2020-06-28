@@ -65,4 +65,3 @@ if (card1.value === card2.value){
 console.log(player1);
 console.log(player2);
 }
-console.log(play())
