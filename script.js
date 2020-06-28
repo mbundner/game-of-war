@@ -4,9 +4,9 @@ const cardFace = ["2","3","4","5","6","7","8","9","10","jack","queen","king","ac
 const cardSuits = ["spades", "clubs", "diamonds", "hearts"];
 const cardValue = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
-const deck = [];
-const player1 = [];
-const player2 = [];
+let deck = [];
+let player1 = [];
+let player2 = [];
 
 for (let i=0; i<cardFace.length; i++){
     for (let j=0; j<cardSuits.length; j++){
@@ -38,30 +38,31 @@ for (i=0; i<deck.length; i++){
     player2.push(deck[i])
   }
 }
-console.log(player1)
-console.log(player2)
+//console.log(player1)
+//console.log(player2)
 
 //CODE for the battlefield...function called play()
 
 //round1
 
-let card1 = player1.shift();
-let card2 = player2.shift()
-let playField = [card1, card2];
-console.log(card1)
-console.log(card2)
-console.log(playField)
 
-/*
+function play(){
+  let card1 = player1.shift();
+  let card2 = player2.shift();
+  let pot = [card1, card2];
+  console.log(card1);
+  console.log(card2);
+  
 if (card1.value === card2.value){
   console.log("we have a war")
 }else if (card1.value > card2.value){
-  console.log("player 1 wins round")
-  player1.push(card1, card2)
-}else{
-  console.log("player 2 wins round")
-  player1.push(card1, card2)
+  console.log("player 1 wins round");
+  player1 = player1.concat(pot);
+}else if(card1.value < card2.value){
+  console.log("player 2 wins round");
+  player2 = player2.concat(pot);
+  }
+console.log(player1);
+console.log(player2);
 }
-console.log(player1)
-console.log(player2)
-*/
+console.log(play())
