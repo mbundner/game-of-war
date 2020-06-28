@@ -40,3 +40,28 @@ for (i=0; i<deck.length; i++){
 }
 console.log(player1)
 console.log(player2)
+
+//CODE for the battlefield...function called play()
+
+//round1
+
+let card1 = player1.shift();
+let card2 = player2.shift()
+let playField = [card1, card2];
+console.log(card1)
+console.log(card2)
+console.log(playField)
+
+/*
+if (card1.value === card2.value){
+  console.log("we have a war")
+}else if (card1.value > card2.value){
+  console.log("player 1 wins round")
+  player1.push(card1, card2)
+}else{
+  console.log("player 2 wins round")
+  player1.push(card1, card2)
+}
+console.log(player1)
+console.log(player2)
+*/
